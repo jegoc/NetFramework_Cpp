@@ -34,6 +34,11 @@ namespace NetFrameworkCpp {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ btnLogin;
+	private: System::Windows::Forms::Button^ btnCancel;
+	protected:
+
+	protected:
 
 	private:
 		/// <summary>
@@ -48,12 +53,48 @@ namespace NetFrameworkCpp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->btnLogin = (gcnew System::Windows::Forms::Button());
+			this->btnCancel = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// btnLogin
+			// 
+			this->btnLogin->Location = System::Drawing::Point(38, 233);
+			this->btnLogin->Name = L"btnLogin";
+			this->btnLogin->Size = System::Drawing::Size(212, 100);
+			this->btnLogin->TabIndex = 0;
+			this->btnLogin->Text = L"Login";
+			this->btnLogin->UseVisualStyleBackColor = true;
+			this->btnLogin->Click += gcnew System::EventHandler(this, &MyForm::btnLogin_Click);
+			// 
+			// btnCancel
+			// 
+			this->btnCancel->Location = System::Drawing::Point(286, 232);
+			this->btnCancel->Name = L"btnCancel";
+			this->btnCancel->Size = System::Drawing::Size(212, 101);
+			this->btnCancel->TabIndex = 1;
+			this->btnCancel->Text = L"Cancel";
+			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->Click += gcnew System::EventHandler(this, &MyForm::btnCancel_Click);
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(556, 419);
+			this->Controls->Add(this->btnCancel);
+			this->Controls->Add(this->btnLogin);
+			this->Name = L"MyForm";
+			this->Text = L"MyForm";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
+	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+	}
+	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
 	};
 }
